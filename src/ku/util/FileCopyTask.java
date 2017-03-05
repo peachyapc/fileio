@@ -27,7 +27,7 @@ import stopwatch.TaskTimer;
  * includes files in your project's src/ directory.  
  * It is a standard technique for opening resources.
  * 
- * @author 
+ * @author Apichaya Tiwcharoensakul
  *
  */
 public class FileCopyTask implements Runnable {
@@ -133,11 +133,6 @@ public class FileCopyTask implements Runnable {
 		int blockSize2 = blockSize1 * 4;
 		int blockSize3 = blockSize1 * 64;
 		
-		// Define a FileUtil task to copy a file byte by byte.
-		// This is an anonymous class that extends FileUtilTimer.
-		//TODO Can you make this code shorter by passing the filenames
-		// as parameters to the superclass constructor?
-		
 		ByteCopyTask task1 = new ByteCopyTask(inputFilename, outputFilename);
 		BlockCopyTask task2 = new BlockCopyTask(inputFilename, outputFilename, blockSize1);
 		BlockCopyTask task3 = new BlockCopyTask(inputFilename, outputFilename, blockSize2);
@@ -150,62 +145,6 @@ public class FileCopyTask implements Runnable {
 		timer.measureAndPrint(task3);
 		timer.measureAndPrint(task4);
 		timer.measureAndPrint(task5);
-
-
-		
-//		FileCopyTask task1 = new FileCopyTask(inputFilename, outputFilename) {
-//			public void run() {
-//				FileUtil.copy(in, out);
-//			}
-//			public String toString() {
-//				return "Copy a file byte-by-byte";
-//			}
-//		};
-//		
-//		int firstKB = 1024;
-//		FileCopyTask task2 = new FileCopyTask(inputFilename, outputFilename) {
-//			public void run() {
-//				FileUtil.copy(in, out, firstKB);
-//			}
-//			public String toString() {
-//				return "Copy a file using a byte array of size 1KB";
-//			}
-//		};
-//		
-//		int secondKB = firstKB * 4;
-//		FileCopyTask task3 = new FileCopyTask(inputFilename, outputFilename) {
-//			public void run() {
-//				FileUtil.copy(in, out, secondKB);
-//			}
-//			public String toString() {
-//				return "Copy a file using a byte array of size 4KB";
-//			}
-//		};
-//		
-//		int thirdKB = firstKB * 64;
-//		FileCopyTask task4 = new FileCopyTask(inputFilename, outputFilename) {
-//			public void run() {
-//				FileUtil.copy(in, out, thirdKB);
-//			}
-//			public String toString() {
-//				return "Copy a file using a byte array of size 64KB";
-//			}
-//		};
-//		
-//		FileCopyTask task5 = new FileCopyTask(inputFilename, outputFilename) {
-//			public void run() {
-//				FileUtil.bcopy(in, out);
-//			}
-//			public String toString() {
-//				return "Copy a file using BufferedReader and PrintWriter to copy lines of text";
-//			}
-//		};
-		
-		
-		//TODO Define tasks for the other copy tests you need.
-		
-		//TODO 'Avoid Magic Numbers' - some tasks require a blocksize
-		// for the copy method.  Don't write this as a number in the
-		// anonymous class!  Use a variable from the outer scope (here).  
+ 
 	}
 }
