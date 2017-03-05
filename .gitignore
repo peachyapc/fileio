@@ -1,0 +1,6 @@
+##Ignore file
+.settings/
+bin/
+.classpath
+.project
+
